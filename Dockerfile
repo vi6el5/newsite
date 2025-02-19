@@ -7,5 +7,9 @@ COPY . /var/www/html/
 # Expose port 80 to the outside world
 EXPOSE 80
 
+# Add permissions to the www-data user
+RUN chown -R www-data:www-data /var/www/html
+
+
 # Start Apache in the foreground
 CMD ["apache2-foreground"]
